@@ -1,0 +1,6 @@
+  _   _   _   _   _   _   _   _   _   _     _   _   _   _   _   _     _   _   _   _   _   _
+ / \ / \ / \ / \ / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \
+( S | t | r | e | a | m | i | n | g | - ) ( P | l | a | t | f | o | r | m ) ( A | p | p )
+ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/
+${application.title} ${application.version}
+Powered by Spring Boot ${spring-boot.version}
