@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# macOS system files
+.DS_Store
+
+# IntelliJ IDEA project settings
+.idea/
