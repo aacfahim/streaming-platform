@@ -1,5 +1,6 @@
 package com.aacfahim.streaming_platform.security.jwt;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
@@ -11,8 +12,14 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    private final String SECRET_KEY = "FozDTHWtNnHa9oajndwbRXe7owe2eBW3HsYTqsL/0Vk=";
-    private final long EXPIRATION_TIME = 86400000; // 1 day
+    private final String SECRET_KEY;
+    private final long EXPIRATION_TIME;
+
+    public JwtService() {
+        Dotenv dotenv = Dotenv.configure().load();
+        this.SECRET_KEY = dotenv.get("JWT_SECRET_KEY");
+        this.EXPIRATION_TIME = Long.parseLong(dotenv.get("JWT_EXPIRATION_TIME"));
+    }
 
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());

@@ -37,3 +37,6 @@ build/
 
 # IntelliJ IDEA project settings
 .idea/
+
+
+.env
