@@ -18,8 +18,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import static com.aacfahim.streaming_platform.config.ApiPath.*;
+
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping(AUTH)
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -29,7 +31,7 @@ public class AuthController {
     private final UserService userService;
 
 
-    @PostMapping("/login")
+    @PostMapping(LOGIN)
     public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody @Validated AuthRequest request) {
         try {
             authenticationManager.authenticate(
@@ -66,7 +68,7 @@ public class AuthController {
     }
 
 
-    @PostMapping("/register")
+    @PostMapping(REGISTER)
     public ResponseEntity<ApiResponse<String>> register(@RequestBody RegisterRqDTO requestDto) {
         userService.register(requestDto);
         return ResponseEntity.ok(
@@ -76,7 +78,7 @@ public class AuthController {
 
 
     // or using OTP
-    @PostMapping("/register/initiate")
+    @PostMapping(REGISTER_WITH_OTP)
     public ResponseEntity<ApiResponse<String>> initiateRegistration(@RequestBody InitiateRegisterDTO dto) {
         try {
             userService.initiateRegistration(dto);
@@ -90,7 +92,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/register/verify")
+    @PostMapping(VERIFY_OTP)
     public ResponseEntity<ApiResponse<String>> verifyAndRegister(@RequestBody OtpVerificationDTO dto) {
         try {
             User user = userService.completeRegistration(dto);
