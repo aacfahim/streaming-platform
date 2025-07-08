@@ -11,5 +11,7 @@ public class ApiPath {
     public static final String REGISTER = "/register";
     public static final String VERIFY_OTP = "/verify";
     public static final String REGISTER_WITH_OTP = REGISTER + "/initiate";
+    public static final String VIDEOS = PRODUCT_TITLE + "/videos";
+
 
 }
